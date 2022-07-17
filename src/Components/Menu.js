@@ -30,6 +30,8 @@ const Menu = (array) => {
                         {Section(elem)}
                     </div>
                 )
+            } else {
+                return <></>
             }
         })
     )
