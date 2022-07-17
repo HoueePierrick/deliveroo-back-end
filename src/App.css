@@ -1,38 +1,323 @@
-.App {
-  text-align: center;
+:root {
+  --black: #2E3333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: none;
+  overflow: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  margin: 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  width: 100%;
+  height: calc(60px);
+  box-sizing: border-box;
+  position: relative;
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+
+.DeliverooLogo {
+  display: block;
+  width: calc(155px);
+  height: auto;
+  position: absolute;
+  top: 4px;
+  left: min(100vw - 1110px, calc(112px));
+}
+
+.divider {
+  border: 1px solid #F2F5F5;
+  width: 100%;
+  height: 0px;
+}
+
+main {
+  background-color: #F3F5F5;
+  position: relative;
+  width: 100%;
+}
+
+.restaurant-description {
+  height: calc(227px);
+  display: flex;
+  justify-content: space-between;
+  padding-left: min(100vw - 1110px - 8px, calc(112px - 8px));
+  padding-right: min(100vw - 1110px - 8px, calc(112px - 8px));
+  background-color: white;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* 1110px => 15px */
+
+.rest-desc-written {
+  /* width: calc(960px * 100% / (960px - calc(112px) + 350px + 30px)); */
+  width: calc(100vw - 350px - 30px);
+  margin-right: 30px;
+  box-sizing: border-box;
+}
+
+.rest-desc-img {
+  display: block;
+  width: calc(350px + 30px);
+}
+
+.cover-image {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: fill;
+  box-sizing: border-box;
+  display: block;
+}
+
+.restaurantname {
+  font-size: 32px;
+  color: #2E3333;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.restaurantdescription {
+  font-size: 19px;
+  line-height: 28.8px;
+  color: #8E9191;
+}
+
+.order {
+  width: 100%;
+  display: flex;
+  padding-top: 30px;
+  padding-left: min(100vw - 1110px - 8px, calc(112px - 8px));
+  padding-right: min(100vw - 1110px - 8px, calc(112px - 8px));
+  box-sizing: border-box;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu {
+  width: calc(100% - 350px - 30px);
+  /* width: 75.5%; */
+  margin-right: 30px;
+}
+
+.basket {
+  position: sticky;
+  width: 350px;
+  height: 100px;
+  right: min(100vw - 1095px - 30px, calc(112px));
+  top: 30px;
+  /* top: calc(30px * 2 + 60px + 227px); */
+  /* width: max(22%, 350px); */
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.category {
+  width: 100%;
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.category:first-child {
+  margin-top: 0px;
+}
+
+.categorytitle {
+  color: var(--black);
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 19px;
+  width: 100%;
+}
+
+.meal {
+  width: min(400px, calc(calc(400 * 100%) / 820));
+  height: 160px;
+  margin-bottom: 25px;
+  background-color: white;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.meal:hover {
+  cursor: pointer;
+  box-shadow: 0px 6px 12px 0px #BAC3C3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.mealdescription {
+  /* width: calc(400px - 130px - 22px); */
+  /* width: calc(100% - 130px - 22px); */
+  width: 100%;
+  height: calc(100% - 15px * 2);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.mealtitle {
+  width: 100%;
+  font-size: 18px;
+  line-height: 21px;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.mealdetails {
+  width: 100%;
+  height: 38px;
+  overflow: hidden;
+  font-size: 14px;
+  color: #808484;
+  margin-bottom: 18px;
+  line-height: 20.8px;
+}
+
+.divpop {
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
+
+.mealprice {
+  color: #808484;
+  font-size: 17px;
+  margin-right: 20px;
+}
+
+.star {
+  color: #FF8001;
+  margin-right: 5px;
+}
+
+.popular {
+  color: #FF8001;
+  font-size: 12px;
+  line-height: 17px;
+  padding-top: 2px;
+  font-weight: 900;
+}
+
+.mealimage {
+  display: block;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-left: 23px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1120px) {
+  .DeliverooLogo {
+    left: 3px;
   }
-  to {
-    transform: rotate(360deg);
+  .meal {
+    width: 100%;
+  }
+  .restaurant-description {
+    padding: 0px 3px;
+  }
+  .order {
+    padding: 30px 11px;
+  }
+}
+
+@media (max-width: 885px) {
+  .divider {
+    border: none;
+  }
+  .restaurant-description {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    height: calc(385px);
+    overflow: visible;
+  }
+  .rest-desc-written {
+    width: 100%;
+    height: calc(193px - 45px);
+    margin: 0px;
+    padding: 0px 20px;
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+  .rest-desc-img {
+    display: block;
+    width: 100%;
+    height: 200px;
+  }
+  .cover-image {
+    height: 100%;
+    object-fit: cover;
+  }
+  .restaurantname {
+    font-size: 24px;
+    width: 100%;
+  }
+  .restaurantdescription {
+    font-size: 16px;
+    line-height: 24px;
+    width: 100%;
+  }
+  .mealprice {
+    color: #808484;
+    font-size: 17px;
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .restaurant-description {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    height: calc(385px + 45px);
+  }
+  .rest-desc-written {
+    height: calc(193px);
+  }
+  header {
+    margin-bottom: 0px;
+  }
+  .order {
+    width: 100%;
+    display: block;
+  }
+  .menu {
+    width: 100%;
+    margin-right: 0px;
+  }
+  .basket {
+    position: fixed;
+    width: 100%;
+    height: 84px;
+    top: calc(100% - 84px);
+    left: 0px;
+  }
+}
+
+@media (max-width: 499px) {
+  .restaurant-description {
+    height: auto;
+  }
+  .rest-desc-written {
+    height: auto;
   }
 }
