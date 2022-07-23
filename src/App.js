@@ -2,8 +2,8 @@ import './App.css';
 import Header from './Components/Header';
 import Main from './Components/Main';
 import { library   } from '@fortawesome/fontawesome-svg-core';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-library.add(faStar);
+import { faStar, faCircleMinus, faCirclePlus} from '@fortawesome/free-solid-svg-icons';
+library.add(faStar, faCircleMinus, faCirclePlus);
 
 function App() {
   return (

@@ -1,28 +1,51 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Menu from "./Menu";
+import Basket from "./Basket";
+import ImportTable from "./ImportTable"
+
 
 const Resto = () => {
     const [datas, setDatas] = useState();
     const [isLoading, setIsLoading] = useState(true);
+    const [categ, setCateg] = useState();
+    const [basket, setBasket] = useState();
 
     useEffect(() => {
         const fetchData = async() => {
             try {
                 const Response = await axios.get('https://deliveroo-back-end-le-reacteur.herokuapp.com/')
                 setDatas(Response.data)
+
+                if(!categ) {
+                    const Categories = Object.values(Response.data.categories)
+                    setCateg(Categories)
+                } 
+
+                if(categ) {
+                    let Array = ImportTable(categ)
+                    if(!basket) {setBasket(Array)}
+                }
+
                 setIsLoading(false)
             } catch (error) {console.log(error.response)}
         }
         fetchData();
-    }, [])
+    }, [categ])
     
-    const CategExtract = () => {
-        if(datas) {
-            const Categories = Object.values(datas.categories) // table contenant les 12 catégories
-            return Categories;
-        }
-    }
+
+    // const CategExtract = () => {
+    //     if(datas) {
+    //         const Categories = Object.values(datas.categories) // table contenant les 12 catégories
+    //         if(!categ) {
+    //             setCateg(Categories)
+    //         }
+    //         return Categories;
+    //     }
+    // }
+    // console.log(categ)
+
+    // // console.log(Object)
     // console.log(CategExtract())
     // A récupérer :
     // .name (titre)
@@ -40,8 +63,8 @@ const Resto = () => {
                 <div className="rest-desc-img"><img src={datas.restaurant.picture} alt="To be guessed" className="cover-image"></img></div>
             </div>
             <div className="order">
-                <div className="menu">{Menu(CategExtract())}</div>
-                <div className="basket"></div>
+                <Menu categ={categ} basket={basket} setBasket={setBasket}></Menu>
+                <Basket categ={categ} basket={basket} setBasket={setBasket}></Basket>
             </div>
         </>
     )
