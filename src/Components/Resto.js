@@ -31,7 +31,7 @@ const Resto = () => {
             } catch (error) {console.log(error.response)}
         }
         fetchData();
-    }, []) // removed categ from array
+    }, [categ]) // removed categ from array
     
     // A récupérer :
     // .name (titre)
