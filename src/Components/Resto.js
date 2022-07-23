@@ -31,22 +31,8 @@ const Resto = () => {
             } catch (error) {console.log(error.response)}
         }
         fetchData();
-    }, [categ])
+    }, []) // removed categ from array
     
-
-    // const CategExtract = () => {
-    //     if(datas) {
-    //         const Categories = Object.values(datas.categories) // table contenant les 12 catégories
-    //         if(!categ) {
-    //             setCateg(Categories)
-    //         }
-    //         return Categories;
-    //     }
-    // }
-    // console.log(categ)
-
-    // // console.log(Object)
-    // console.log(CategExtract())
     // A récupérer :
     // .name (titre)
     // En liste, décomposer la table .meals (avec un autre .map) 
@@ -64,7 +50,7 @@ const Resto = () => {
             </div>
             <div className="order">
                 <Menu categ={categ} basket={basket} setBasket={setBasket}></Menu>
-                <Basket categ={categ} basket={basket} setBasket={setBasket}></Basket>
+                <Basket basket={basket} setBasket={setBasket}></Basket>
             </div>
         </>
     )

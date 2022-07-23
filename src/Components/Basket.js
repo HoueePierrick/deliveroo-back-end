@@ -53,7 +53,7 @@ const ItemCount = (array) => {
 }
 
 const Basket = (props) => {
-    const {categ, basket, setBasket} = props;
+    const {basket, setBasket} = props;
     const [smallClick, setSmallClick] = useState(0)
     if(basket)
     {
